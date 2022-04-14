@@ -36,10 +36,10 @@ def convert(lines):
             else:
                 for m in s[2:]:
                     viki_word_count += len(m)        
-    print('allen說了', allen_word_count)
+    print('allen說了', allen_word_count, '個字')
     print('allen傳了', allen_sticker_count, '個貼圖')
     print('allen傳了', allen_image_count, '張圖片')
-    print('viki說了', viki_word_count)
+    print('viki說了', viki_word_count, '個字')
     print('viki傳了', viki_sticker_count, '個貼圖')
     print('viki傳了', viki_image_count, '張圖片')   
         # print(s)
