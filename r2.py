@@ -9,23 +9,30 @@ def read_file(filename):
 
 
 def convert(lines):
-    new = []
     person = None # person這個值先宣告"無"
     allen_word_count = 0
+    allen_sticker_count = 0
     viki_word_count = 0
+    viki_sticker_count = 0
     for line in lines:  # 一行一行讀取對話紀錄
         s = line.split(' ')
         time = s[0]
         name = s[1]
         if name == 'Allen':
-            print(s[2:])
+            if s[2] == '貼圖':
+                allen_sticker_count += 1
+            else:
+                for m in s[2:]:
+                    allen_word_count += len(m)
         elif name == 'Viki':
-            print(s[2:])
-        
+            if s[2] == '貼圖':
+                viki_sticker_count += 1
+            else:
+                for m in s[2:]:
+                    viki_word_count += len(m)        
+    print('allen說了', allen_word_count, '傳了', allen_sticker_count, '個貼圖')
+    print('viki說了', viki_word_count, '傳了', viki_sticker_count, '個貼圖')   
         # print(s)
-
-    return new
-
 
 def write_file(filename, lines):
     with open(filename, 'w') as f:
